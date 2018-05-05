@@ -184,11 +184,11 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="0x00-开始"><a href="#0x00-开始" class="headerlink" title="0x00.开始"></a>0x00.开始</h3><p>链接<code>http://eaxmple.website/News/NewsList.aspx?blmid=1&amp;slmid=3</code>存在盲注漏洞。扔进Sqlmap，耗时较长，且会出错。</p>
+    <h3><span id="0x00开始">0x00.开始</span></h3><p>链接<code>http://eaxmple.website/News/NewsList.aspx?blmid=1&amp;slmid=3</code>存在盲注漏洞。扔进Sqlmap，耗时较长，且会出错。</p>
 <p><img src="1.png" alt=""></p>
 <p>此处<code>UserName</code>第一个是<code>admin</code>并不是<code>gdmin</code>。幸好<code>UserPwd</code>没出错。<br><strong>密码看似是BASE64，解完是乱码，需要转换成16进制，提出字符，正好是32位，<a href="https://www.somd5.com/" target="_blank" rel="external">md5解密</a>。</strong></p>
 <p>后台地址<code>/admin/login.aspx</code></p>
-<h3 id="0x01-上传点"><a href="#0x01-上传点" class="headerlink" title="0x01.上传点"></a>0x01.上传点</h3><p>Sqlmap扫描很慢，扫描同时扫描了下常用目录。发现<code>FCKeditor</code>上传点。</p>
+<h3><span id="0x01上传点">0x01.上传点</span></h3><p>Sqlmap扫描很慢，扫描同时扫描了下常用目录。发现<code>FCKeditor</code>上传点。</p>
 <p><img src="2.png" alt=""></p>
 <p><code>http://eaxmple.website/FCKeditor/_whatsnew.html</code>知<code>FCKeditor</code>版本</p>
 <p><img src="3.png" alt=""></p>
@@ -209,7 +209,7 @@ classes that you can use:
 <p>尝试编辑器里上传后的路径<code>/userfiles/image/</code>没有找到文件。</p>
 <p>去找网站里图片的地址<code>/images/xxx.png</code></p>
 <p><strong>这里由于经验少，不知道访问的文件应该是全名<code>1.asp;.jpg</code>，尝试<code>1.asp</code>并没有找到文件，还以为没有上传成功，导致放弃了该路线</strong></p>
-<h3 id="0x02-后台Getshell"><a href="#0x02-后台Getshell" class="headerlink" title="0x02.后台Getshell"></a>0x02.后台Getshell</h3><p>用解密后的结果登录进后台</p>
+<h3><span id="0x02后台getshell">0x02.后台Getshell</span></h3><p>用解密后的结果登录进后台</p>
 <p>刚开始找到一个图片上传点，限制了文件名必须以图片的后缀名为结尾，并且会重命名：<br><code>1.asp;.jpg</code>就会变成<code>2017xxxxxxxx.jpg</code><br>而且无法添加文件夹，导致该处不能使用。</p>
 <p>看看其他功能，找找有没有可用点。<br>找到编辑器，即<code>FCKeditor</code>。找到上传图片功能，本想着这下能找到上传后的路径。结果发现可直接浏览网站文件。</p>
 <p><img src="4.png" alt=""></p>

