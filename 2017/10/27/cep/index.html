@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      超老站练手 | Unothing 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Unothing">
+    
+    
+
+    <meta name="description" content="0x00.开始链接http://eaxmple.website/News/NewsList.aspx?blmid=1&amp;amp;slmid=3存在盲注漏洞。扔进Sqlmap，耗时较长，且会出错。  此处UserName第一个是admin并不是gdmin。幸好UserPwd没出错。密码看似是BASE64，解完是乱码，需要转换成16进制，提出字符，正好是32位，md5解密。 后台地址/admin/log">
+<meta name="keywords" content="SQLInjection,FCKeditor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="超老站练手 | Unothing">
+<meta property="og:url" content="https://unothing.github.io/2017/10/27/cep/index.html">
+<meta property="og:site_name" content="Unothing">
+<meta property="og:description" content="0x00.开始链接http://eaxmple.website/News/NewsList.aspx?blmid=1&amp;amp;slmid=3存在盲注漏洞。扔进Sqlmap，耗时较长，且会出错。  此处UserName第一个是admin并不是gdmin。幸好UserPwd没出错。密码看似是BASE64，解完是乱码，需要转换成16进制，提出字符，正好是32位，md5解密。 后台地址/admin/log">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://unothing.github.io/2017/10/27/cep/1.png">
+<meta property="og:image" content="https://unothing.github.io/2017/10/27/cep/2.png">
+<meta property="og:image" content="https://unothing.github.io/2017/10/27/cep/3.png">
+<meta property="og:image" content="https://unothing.github.io/2017/10/27/cep/4.png">
+<meta property="og:image" content="https://unothing.github.io/2017/10/27/cep/5.png">
+<meta property="og:image" content="https://unothing.github.io/2017/10/27/cep/6.png">
+<meta property="og:updated_time" content="2018-05-03T14:15:05.019Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="超老站练手 | Unothing">
+<meta name="twitter:description" content="0x00.开始链接http://eaxmple.website/News/NewsList.aspx?blmid=1&amp;amp;slmid=3存在盲注漏洞。扔进Sqlmap，耗时较长，且会出错。  此处UserName第一个是admin并不是gdmin。幸好UserPwd没出错。密码看似是BASE64，解完是乱码，需要转换成16进制，提出字符，正好是32位，md5解密。 后台地址/admin/log">
+<meta name="twitter:image" content="https://unothing.github.io/2017/10/27/cep/1.png">
+    
+    
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Unothing</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">分类</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">超老站练手</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-10-27" class="post-meta__date date">2017-10-27</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Pentest/">Pentest</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/FCKeditor/">FCKeditor</a>, <a class="tags-link" href="/tags/SQLInjection/">SQLInjection</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="0x00-开始"><a href="#0x00-开始" class="headerlink" title="0x00.开始"></a>0x00.开始</h3><p>链接<code>http://eaxmple.website/News/NewsList.aspx?blmid=1&amp;slmid=3</code>存在盲注漏洞。扔进Sqlmap，耗时较长，且会出错。</p>
+<p><img src="1.png" alt=""></p>
+<p>此处<code>UserName</code>第一个是<code>admin</code>并不是<code>gdmin</code>。幸好<code>UserPwd</code>没出错。<br><strong>密码看似是BASE64，解完是乱码，需要转换成16进制，提出字符，正好是32位，<a href="https://www.somd5.com/" target="_blank" rel="external">md5解密</a>。</strong></p>
+<p>后台地址<code>/admin/login.aspx</code></p>
+<h3 id="0x01-上传点"><a href="#0x01-上传点" class="headerlink" title="0x01.上传点"></a>0x01.上传点</h3><p>Sqlmap扫描很慢，扫描同时扫描了下常用目录。发现<code>FCKeditor</code>上传点。</p>
+<p><img src="2.png" alt=""></p>
+<p><code>http://eaxmple.website/FCKeditor/_whatsnew.html</code>知<code>FCKeditor</code>版本</p>
+<p><img src="3.png" alt=""></p>
+<p>上传点有两个</p>
+<ul>
+<li><code>http://eaxmple.website/fckeditor/editor/filemanager/connectors/test.html</code></li>
+<li><code>http://eaxmple.website/FCKeditor/editor/filemanager/connectors/uploadtest.html</code></li>
+</ul>
+<p>不可直接上传asp，可上传图片，探测知服务器是IIS6.0，有解析漏洞，可上传</p>
+<ul>
+<li><code>1.asp;.jpg</code></li>
+<li><code>1.asp/1.jpg</code></li>
+<li><code>1.asp%00.jpg</code></li>
+</ul>
+<p>等形式的文件绕过限制，有验证文件头的可添加<code>GIF89a</code>绕过。</p>
+<p>但是上传后并没有返回路径，使用自带页面获取<code>current folder</code>，提示没有登录，没有返回任何xml。</p>
+<p>使用<br><code>FCKeditor/editor/filemanager/browser/default/connectors/asp/connector.asp?Command=GetFoldersAndFiles&amp;Type=Image&amp;CurrentFolder=/</code><br>显示404</p>
+<p>尝试编辑器里上传后的路径<code>/userfiles/image/</code>没有找到文件。</p>
+<p>去找网站里图片的地址<code>/images/xxx.png</code></p>
+<p><strong>这里由于经验少，不知道访问的文件应该是全名<code>1.asp;.jpg</code>，尝试<code>1.asp</code>并没有找到文件，还以为没有上传成功，导致放弃了该路线</strong></p>
+<h3 id="0x02-后台Getshell"><a href="#0x02-后台Getshell" class="headerlink" title="0x02.后台Getshell"></a>0x02.后台Getshell</h3><p>用解密后的结果登录进后台</p>
+<p>刚开始找到一个图片上传点，限制了文件名必须以图片的后缀名为结尾，并且会重命名：<br><code>1.asp;.jpg</code>就会变成<code>2017xxxxxxxx.jpg</code><br>而且无法添加文件夹，导致该处不能使用。</p>
+<p>看看其他功能，找找有没有可用点。<br>找到编辑器，即<code>FCKeditor</code>。找到上传图片功能，本想着这下能找到上传后的路径。结果发现可直接浏览网站文件。</p>
+<p><img src="4.png" alt=""></p>
+<p>发现自己之前传的shell静静地躺在那。。。。。。</p>
+<p><img src="5.png" alt=""></p>
+<p>不过有意思的是传的<code>1.asp;.jpg</code>变成了<code>1_asp;.jpg</code>,但是重复上传的第二个文件<code>1.asp;(1).jpg</code>并没有变。(FCKeditor特性。。。)<br>而且第一个文件夹应该是前人的shell。。。。。。</p>
+<p>选择文件后，得知路径，直接菜刀连接，Getshell<br><img src="6.png" alt=""></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
