@@ -1,4 +1,4 @@
 ---
-title: 归档
+title: 分类
 layout: page-archive
 ---
