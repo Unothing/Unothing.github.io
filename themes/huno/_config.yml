@@ -1,0 +1,22 @@
+# Header
+menu:
+  首页: /#blog
+#  关于: /about
+  分类: /archive
+#  RSS: /atom.xml
+  
+# Site favicon
+#favicon: /favicon.jpg
+
+# Site logo
+#logo: /favicon.jpg      
+#/avatar.png
+
+# Enable Mathjax
+mathjax: true
+
+# Enable awesome-toc
+awesome_toc: true
+
+# Enable githubRepoWidget
+github_repo_widget: false
