@@ -3,6 +3,7 @@ title: Hexo
 date: 2000-01-01 00:00:01
 categories: 搭博客
 tags: hexo
+toc: true
 ---
 ### 0
 建议先看[Git](/2000/01/01/Git/)
@@ -111,6 +112,11 @@ git remote add origin git@github.com:username/yourname.github.io.git
 git add .
 git commit -m "#"
 git push origin backup
+```
+如果对应的主题没有成功上传可能原因是，主题是通过`git clone`下载的，此时主题目录下会有`.git`，相当于一个项目下包含了另一个项目，导致的出错。解决办法：
+```
+删除对应主题目录下的.git
+git rm -rf --cached theme_name/
 ```
 
 ### 参考

@@ -4,6 +4,7 @@ date: 2017-11-15 10:18:33
 categories: CTF
 tags: 
 - blind injection
+toc: true
 ---
 
 题目过滤了各种延时函数，当时也考虑过使用某种循环查询产生类似延时的效果，奈何水平不够。看了大佬的WP学到了用笛卡尔积产生延时效果orz

@@ -3,6 +3,7 @@ title: 2018-starctf
 date: 2018-05-07 20:08:15
 categories: CTF
 tags: 
+toc: true
 ---
 
 就随便看了2题，做个简单的记录。
