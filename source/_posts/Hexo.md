@@ -60,6 +60,7 @@ post_asset_folder: true     # 添加文章时自动生成同名文件夹用来�
 
 # URL
 url: https://yourname.github.io     # github.io分配的域名
+permalink: posts/:title/			# 优化网站链接
 
 # Extensions
 theme: theme_name

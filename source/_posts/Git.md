@@ -78,17 +78,36 @@ git push origin dev
 git checkout -b dev origin/dev
 ```
 
-### 5
+### 5.遇到的问题
 ```
 # 拉取最新变更
-git pull git@github.com:yourname/MyBlog.git
+git pull
+```
+`git pull`失败
+```
+Please commit your changes or stash them before you merge.
+```
+是因为有本地变更但没有`commit`。
+解决办法：
+1.`commit`
+2.
+```
+git stash		# 备份当前的工作区的内容
+git pull
+git stash pop	# 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。
+```
+接下来`diff`一下此文件看看自动合并的情况，并作出相应修改。
+3.放弃本地修改，直接覆盖之
+```
+git reset --hard
+git pull
 ```
 
 ### 参考
 [廖雪峰git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 
-https://git-scm.com/
+[Git官网](https://git-scm.com/)
 
-https://github.com/github/gitignore
+[gitignore](https://github.com/github/gitignore)
 
-
+[Git冲突：commit your changes or stash them before you can merge.](https://blog.csdn.net/lincyang/article/details/21519333)
